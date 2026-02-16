@@ -1,0 +1,12 @@
+    <!-- بطاقة العلمي -->
+    <div class="program-card">
+        <div class="program-title">الفرع العلمي</div>
+
+        <button class="program-btn" onclick="openProgram('imgs/sci.jpg')">
+            عرض البرنامج
+        </button>
+
+        <a href="images/program-scientific.jpg" download class="download-btn">
+            تنزيل البرنامج
+        </a>
+    </div>

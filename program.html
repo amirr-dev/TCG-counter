@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>برنامج الامتحان – TCG</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .program-container {
+            margin-top: 120px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .program-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px #0ff4;
+        }
+
+        .program-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #0ff;
+            font-weight: bold;
+        }
+
+        .program-btn, .download-btn {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 14px;
+            border-radius: 10px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .program-btn {
+            background: #0ff3;
+            color: #0ff;
+        }
+        .program-btn:hover {
+            background: #0ff;
+            color: #000;
+        }
+
+        .download-btn {
+            background: #444;
+            color: #fff;
+            border: 1px solid #666;
+        }
+        .download-btn:hover {
+            background: #0ff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<!-- العنوان -->
+<h1 class="page-title">برنامج الامتحان النهائي - دورة 2026</h1>
+<h6> لطلاب الثالث الثانوي في سوريا</h6>
+
+<div class="program-container">
+
+    <!-- بطاقة العلمي -->
+    <div class="program-card">
+        <div class="program-title">الفرع العلمي</div>
+        
+        <button class="program-btn" onclick="openProgram('imgs/sci.jpg')">
+            عرض البرنامج
+        </button>
+        
+        <!--<a href="images/program-scientific.jpg" download class="download-btn">
+            تنزيل البرنامج
+        </a> --!>
+    </div>
+
+    <!-- بطاقة الأدبي -->
+    <div class="program-card">
+        <div class="program-title">الفرع الأدبي</div>
+
+        <button class="program-btn" onclick="openProgram('imgs/lit.jpg')">
+            عرض البرنامج
+        </button>
+
+        <!--<a href="images/program-literary.jpg" download class="download-btn">
+            تنزيل البرنامج
+        </a> -->
+    </div>
+
+    <!-- بطاقة الشرعي -->
+    <div class="program-card">
+        <div class="program-title">الثانوية الشرعية</div>
+
+        <button class="program-btn" onclick="openProgram('imgs/shr.jpg')">
+            عرض البرنامج
+        </button>
+
+        <!--<a href="images/program-sharia.jpg" download class="download-btn">
+            تنزيل البرنامج
+        </a> -->
+    </div>
+
+</div>
+
+<!-- المنبثق لعرض الصورة -->
+<div id="viewer" style="
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:#000a; backdrop-filter: blur(4px);
+    justify-content:center; align-items:center; z-index:1000;">
+    
+    <img id="viewer-img" src="" style="max-width:90%; max-height:90%; border-radius:12px;">
+
+</div>
+
+<script>
+    function openProgram(src) {
+        document.getElementById("viewer-img").src = src;
+        document.getElementById("viewer").style.display = "flex";
+    }
+
+    document.getElementById("viewer").onclick = function () {
+        this.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

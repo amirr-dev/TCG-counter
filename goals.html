@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أهدافي الدراسية</title>
+ <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Cairo", sans-serif;
+        background: #0c0c0f;
+        color: #fff;
+    }
+
+    header {
+        text-align: center;
+        padding: 25px 0;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        font-size: 26px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 30px auto;
+    }
+
+    .add-goal-box {
+        background: rgba(255,255,255,0.05);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,150,255,0.2);
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .add-goal-box input {
+        width: 80%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        background: linear-gradient(135deg,#007bff,#00eaff);
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00eaff;
+    }
+
+    .goal-card {
+        background: rgba(255,255,255,0.06);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .goal-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .progress-container {
+        background: rgba(255,255,255,0.15);
+        height: 12px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(135deg,#00eaff,#007bff);
+        transition: width 0.6s ease;
+    }
+
+    .percent {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .update-input {
+        width: 80px;
+        padding: 5px;
+        border-radius: 8px;
+        border: none;
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    .delete-btn {
+        background: #dd3333;
+        padding: 5px 10px;
+        border-radius: 8px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: 0.3s;
+    }
+    .delete-btn:hover {
+        background: #ff0000;
+        transform: scale(1.05);
+    }
+</style>
+
+</head>
+<body>
+
+<header>🎯 أهدافي الدراسية</header>
+
+<div class="container">
+
+    <div class="add-goal-box">
+        <h3>أضف هدفاً جديداً</h3>
+        <input type="text" id="goalInput" placeholder="مثال: إنهاء 3 وحدات من الرياضيات">
+        <br>
+        <button class="btn" onclick="addGoal()">إضافة الهدف</button>
+    </div>
+
+    <div id="goalsList"></div>
+
+</div>
+
+
+<script>
+// ---- تحميل من التخزين ----
+let goals = JSON.parse(localStorage.getItem("goals") || "[]");
+renderGoals();
+
+// ---- إضافة هدف ----
+function addGoal() {
+    let text = document.getElementById("goalInput").value.trim();
+    if(text === "") return;
+
+    goals.push({ title: text, progress: 0 });
+    localStorage.setItem("goals", JSON.stringify(goals));
+
+    document.getElementById("goalInput").value = "";
+    renderGoals();
+}
+
+// ---- عرض الأهداف ----
+function renderGoals() {
+    let list = document.getElementById("goalsList");
+    list.innerHTML = "";
+
+    goals.forEach((goal, index) => {
+
+        list.innerHTML += `
+            <div class="goal-card">
+                <div class="goal-title">${goal.title}</div>
+                <div class="percent">نسبة الإنجاز: ${goal.progress}%</div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" style="width:${goal.progress}%"></div>
+                </div>
+
+                <input class="update-input" type="number" min="0" max="100"
+                       onchange="updateProgress(${index}, this.value)" placeholder="%">
+
+                <button class="delete-btn" onclick="deleteGoal(${index})">حذف</button>
+            </div>
+        `;
+    });
+}
+
+// ---- تحديث تقدّم ----
+function updateProgress(i, value) {
+    if(value < 0 || value > 100) return;
+    goals[i].progress = Number(value);
+    localStorage.setItem("goals", JSON.stringify(goals));
+    renderGoals();
+}
+
+// ---- حذف هدف ----
+function deleteGoal(i) {
+    goals.splice(i,1);
+    localStorage.setItem("goals", JSON.stringify(goals));
+    renderGoals();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="manifest" href="manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+}
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد TCG للامتحان</title>
+
+    <!-- خط عربي أنيق -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- ملف التنسيق -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- خلفية متدرجة + فخمة -->
+    <div class="background"></div>
+
+    <!-- رأس الصفحة مع الشعار -->
+    <header class="header">
+        <img src="assets/images/logo.png" alt="TCG Logo" class="logo">
+        <h1 class="title">كم باقي لامتحان البكلوريا <h1>
+        <h6 class="subtitle">إعداد وتطوير فريقTCG التعليمي ¦ الدليل الشامل</h6>
+    </header>
+
+    <!-- الكارد الرئيسية -->
+    <section class="card">
+        <h2 class="count-title">كم بقي للامتحان؟</h2>
+        
+        <div class="countdown" id="countdown">
+            <div class="time-box">
+                <span id="days">--</span>
+                <p>يوم</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">--</span>
+                <p>ساعة</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">--</span>
+                <p>دقيقة</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">--</span>
+                <p>ثانية</p>
+            </div>
+        </div>
+
+        <p class="exam-date">تاريخ الامتحان: <strong> 2026/6/6  -  الساعة 08:00 صباحاً<strong></p>
+        <h6>استغل وقتك، واجتهد في دراستك، لحظة النجاح تنتظرك!</h6>
+    </section>
+
+    <!-- الأزرار السفلية -->
+    <section class="buttons">
+        <a href="program.html" class="btn">📘 برنامج الامتحان</a>
+        <a href="tips.html" class="btn">💡 نصائح الامتحان</a>
+        <a href="goals.html" class="btn secondary">🎯 أهدافي الدراسية</a>
+        <a href="https://t.me/Eldalil2" class="btn telegram" target="_blank">
+    قناة الفريق على تلغرام 📢
+</a>
+    </section>
+
+    <!-- تأثيرات ضوئية خلفية -->
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+
+    <!-- ملف السكربت -->
+    <script src="js/countdown.js"></script>
+    <footer>
+    <h6>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿جميع الحقوق محفوظة © - 2026 - فريق     TCG التعليمي</h6>
+</footer>
+
+
+</body>
+</html>
