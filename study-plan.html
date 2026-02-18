@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الدراسي | TCG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- العنوان الرئيسي -->
+    <header class="header">
+        <h1>📚 الجدول الدراسي</h1>
+        <p class="subtitle">نظّم وقتك واصنع جدولك الدراسي بسهولة</p>
+    </header>
+
+    <!-- قسم إدخال البيانات -->
+    <section class="form-section">
+
+        <h2>إضافة جلسة دراسة</h2>
+
+        <div class="form-box">
+
+            <!-- اختيار المادة -->
+           <label>اليوم:</label>
+<select id="day">
+    <option value="السبت">السبت</option>
+    <option value="الأحد">الأحد</option>
+    <option value="الاثنين">الاثنين</option>
+    <option value="الثلاثاء">الثلاثاء</option>
+    <option value="الأربعاء">الأربعاء</option>
+    <option value="الخميس">الخميس</option>
+</select>
+
+<label>المادة:</label>
+<input type="text" id="subject" placeholder="مثال: رياضيات">
+
+<label>وصف (اختياري):</label>
+<textarea id="desc" placeholder="ملاحظات حول الحصة..."></textarea>
+
+<label>وقت البداية:</label>
+<input type="time" id="startTime">
+
+<label>وقت النهاية:</label>
+<input type="time" id="endTime">
+
+<button class="main-btn" onclick="addPlan()">إضافة إلى الجدول</button>
+    </section>
+
+    <!-- قسم الجدول -->
+    <section class="table-section">
+
+        <h2>جدولك الدراسي</h2>
+        <p class="subtitle">تظهر هنا كل الجلسات التي أضفتها</p>
+
+        <div id="planList" class="plan-list">
+            <!-- البطاقات ستظهر هنا عبر JavaScript -->
+        </div>
+
+    </section>
+
+    <script src="study-plan.js"></script>
+
+</body>
+</html>
