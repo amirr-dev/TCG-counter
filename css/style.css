@@ -1,3 +1,4 @@
+/*------index--------*/
 /* خط عام */
 * {
     margin: 0;
@@ -152,7 +153,7 @@ body {
 
 /* زر ثانوي */
 .btn.secondary {
-    background: linear-gradient(135deg, #00d4ff, #4a00e0);
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
     box-shadow: 0 0 15px rgba(161, 0, 255, 0.4);
 }
 
@@ -175,6 +176,8 @@ body {
 .g1 { background: #00aaff; top: 10%; left: -80px; }
 .g2 { background: #7700ff; bottom: 10%; right: -60px; }
 .g3 { background: #0022ff; top: 60%; left: 50%; transform: translateX(-50%); }
+
+/*-----------------------*/
 /* ===== صفحة النصائح ===== */
 
 .tips-container {
@@ -252,94 +255,229 @@ body {
     color: #ffffff;
     text-shadow: 0 0 10px rgba(0, 110, 255, 0.6);
 }
-.btn.telegram {
-    background: linear-gradient(135deg, #0088cc, #005f87);
-    border: 1px solid rgba(255,255,255,0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+
+/* صفحة برنامج الامتحان */
+
+.program-container {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
-.btn.telegram:hover {
-    transform: translateY(-4px) scale(1.02);
-    background: linear-gradient(135deg, #00aaff, #0077aa);
-}
-.btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-.btn {
-    transition: 0.25s;
-}
-body {
-    background: linear-gradient(-45deg, #0f0f1a, #1b1b29, #11111b, #1e1e2d);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.logo {
-    animation: glow 2.5s ease-in-out infinite;
-}
-
-@keyframes glow {
-    0% { filter: drop-shadow(0 0 0px #fff3); }
-    50% { filter: drop-shadow(0 0 10px #ffffff55); }
-    100% { filter: drop-shadow(0 0 0px #fff3); }
-}
-.countdown-number {
-    font-size: 42px;
-    font-weight: bold;
-    animation: pulseNumber 2s ease-in-out infinite;
-    display: inline-block;
-}
-
-@keyframes pulseNumber {
-    0% { transform: scale(1); opacity: 0.85; }
-    50% { transform: scale(1.06); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.85; }
-}
-
-.card {
-    animation: floatCard 6s ease-in-out infinite;
-}
-
-@keyframes floatCard {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
-}
-.main-btn {
-    display: block;
-    width: 100%;
+.program-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #000;
     text-align: center;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #6a5acd, #7b6df0);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+    transition: 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #000;
+    background: #151515;
+}
+
+.program-card h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+.program-card img {
+    width: 100%;
     border-radius: 14px;
+    margin-bottom: 15px;
+    border: 2px solid #222;
+}
+
+.btn-open {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
     text-decoration: none;
-    margin: 12px 0;
-    box-shadow: 0 0 15px #0005;
-    transition: 0.3s ease;
+}
+
+.btn-open:hover {
+    background: #444;
+}
+
+/* --------stugy plan -----------*/
+/* إعدادات عامة */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Cairo", sans-serif;
+    /*background: #0e0e0e;*/
+    color: #fff;
+    line-height: 1.7;
+}
+
+/* العنوان */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    /*background: linear-gradient(135deg, #1a1a1a, #111);*/
+    border-bottom: 1px solid #222;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #bbb;
+}
+
+/* قسم النموذج */
+.form-section {
+    padding: 20px;
+}
+
+.form-section h2 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+.form-box {
+    background: #151515;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 180, 80, 0.05);
+    border: 1px solid #222;
+}
+
+.form-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #eee;
+}
+
+.form-box select,
+.form-box input,
+.form-box textarea {
+    width: 100%;
+    background: #0d0d0d;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-box select:focus,
+.form-box input:focus,
+.form-box textarea:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(255, 180, 80, 0.3);
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* زر الإضافة */
+.main-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00d4ff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .main-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px #6a5acd88;
-    background: linear-gradient(135deg, #7b6df0, #6a5acd);
+    background: #00d4ff;
+    transform: scale(1.03);
 }
 
-.main-btn:active {
-    transform: scale(0.97);
+/* قسم الجدول */
+.table-section {
+    padding: 20px;
 }
-.item {
+
+.table-section h2 {
+    color: #00d4ff;
+}
+
+/* قائمة البطاقات */
+.plan-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* البطاقات */
+.plan-card {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #262626;
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.06);
     position: relative;
+}
+
+/* عنوان البطاقة */
+.plan-title {
+    font-size: 20px;
+    color: #00d4ff;
+}
+
+/* النصوص داخل البطاقة */
+.plan-info {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #ddd;
+}
+
+/* زر الحذف */
+.delete-btn {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ff1744;
+    transform: scale(1.05);
+}
+
+/* لمعة دخول البطاقات */
+.plan-card {
+    animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
