@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="manifest" href="manifest.json">
-<script>
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-}
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عداد TCG للامتحان</title>
+    <title>عداد الامتحانات TCG</title>
 
     <!-- خط عربي أنيق -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
@@ -26,8 +20,8 @@ if ('serviceWorker' in navigator) {
     <!-- رأس الصفحة مع الشعار -->
     <header class="header">
         <img src="assets/images/logo.png" alt="TCG Logo" class="logo">
-        <h1 class="title">كم باقي لامتحان البكلوريا <h1>
-        <h6 class="subtitle">إعداد وتطوير فريقTCG التعليمي ¦ الدليل الشامل</h6>
+        <h1 class="title">أهلاً وسهلاً بك 👋🏻</h1>
+        <p class="subtitle"> في تطبيق "كم باقي للامتحان"| يمكنك الاطلاع على المدة المتبقية للامتحان النهائي، وتنظيم جدول دراسي خاص بك، والمزيد...  </p>
     </header>
 
     <!-- الكارد الرئيسية -->
@@ -53,18 +47,17 @@ if ('serviceWorker' in navigator) {
             </div>
         </div>
 
-        <p class="exam-date">تاريخ الامتحان: <strong> 2026/6/6  -  الساعة 08:00 صباحاً<strong></p>
-        <h6>استغل وقتك، واجتهد في دراستك، لحظة النجاح تنتظرك!</h6>
+        <p class="exam-date">تاريخ الامتحان: <strong>6 / 6 / 2026</strong> الساعة <strong>08:00</strong> صباحاً</p>
+        <h6>استغل وقتك، واجتهد في دراستك، لحظة النجاح تنتظرك</h6>
     </section>
+
 
     <!-- الأزرار السفلية -->
     <section class="buttons">
         <a href="program.html" class="btn">📘 برنامج الامتحان</a>
         <a href="tips.html" class="btn">💡 نصائح الامتحان</a>
         <a href="goals.html" class="btn secondary">🎯 أهدافي الدراسية</a>
-        <a href="https://t.me/Eldalil2" class="btn telegram" target="_blank">
-    قناة الفريق على تلغرام 📢
-</a>
+        <a href="study-plan.html" class="btn"> 📆إنشاء جدول دراسي</a>
     </section>
 
     <!-- تأثيرات ضوئية خلفية -->
@@ -74,10 +67,6 @@ if ('serviceWorker' in navigator) {
 
     <!-- ملف السكربت -->
     <script src="js/countdown.js"></script>
-    <footer>
-    <h6>﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿جميع الحقوق محفوظة © - 2026 - فريق     TCG التعليمي</h6>
-</footer>
-
 
 </body>
 </html>
